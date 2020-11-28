@@ -9,5 +9,5 @@ nav:
         - HEALTH: health/health.md
         - PREDICT: predict/predict.md
         - ASSIST: assist/assist.md
-    
-theme: readthedocs
+
+# theme: readthedocs
