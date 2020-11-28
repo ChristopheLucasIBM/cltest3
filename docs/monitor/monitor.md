@@ -12,7 +12,7 @@ These labs were conceived to:
 
 This picture summarises the main elements of APM and how they are integrated.
 
-![Monitor0](/img/monitor/Monitor-0.png) &nbsp;  
+![Monitor0](../img/monitor/Monitor-0.png) &nbsp;  
 
 ## 1. Generate the data
 
@@ -30,7 +30,7 @@ This Exercise requires that you have completed Exercise 1 Connected Devices
 
 ### 1. Create Device Type & 3 Devices
 
-Let's first create a *Device Type*. 
+Let's first create a *Device Type*.
 
 1. From your *Monitor* Instance *Home* page, click `Connect Devices`
 2. On the opened *Connect* menu, click `Open Platform Service application` in the top-right corner. This will launch the associated *Watson IoT Platform* in a separate browser tab.
@@ -39,7 +39,7 @@ Let's first create a *Device Type*.
 5. On the next *Metadata* page, enter `CL` in *Model* and *Manufacturer* fields, and enter `CL_Asset` in *Device Class* field. The reason why we want to enter values here is to later show how *Dimensions* can be used in *Monitor* to slide and dice the data. Click `Finish`.
 
 The below picture shows the 5 previous steps.
-![Monitor1](/img/monitor/Monitor-1.png)&nbsp; 
+![Monitor1](/img/monitor/Monitor-1.png)&nbsp;
 
 Now, let's create 3 *Devices* of type *CL_Asset*.
 
@@ -72,7 +72,7 @@ For this Lab, we will simulate our 3 `CL_Asset_1_2_3` Devices generating the fol
 5. Click `Use Registerd Device`, enter *CL_Asset* in the `Pick Device` box, select *CL_Asset_1*. Repeat for *CL_Asset_2* and *CL_Asset_3*.
 6. You should now start seeing Events flowing in the bottom Events box.
 
-Note that the values in the `random(35,40)` functions can be considered being the 'standard operating conditions' for the given IoT reading. 
+Note that the values in the `random(35,40)` functions can be considered being the 'standard operating conditions' for the given IoT reading.
 Later on in the lab, we will change those value ranges for short periods of time (i.e. change the `temperature` ranges from `random(35,40)` to `random(46,49)`) and show how Monitor's out-of-the-box anomaly functions can automatically spot these 'anomalies' which are deviations from the 'standard operating conditions'.
 
 ```
@@ -88,20 +88,20 @@ Later on in the lab, we will change those value ranges for short periods of time
  }  
 ```
 The below pictures shows the 6 previous steps.
-![Monitor3](/img/monitor/Monitor-3.png) &nbsp; 
+![Monitor3](/img/monitor/Monitor-3.png) &nbsp;
 
-Great, you now have your 3 `CL_Asset_1_2_3` Devices generating IoT readings 4 times every minute. 
+Great, you now have your 3 `CL_Asset_1_2_3` Devices generating IoT readings 4 times every minute.
 Let's check those readings on a Dashboard.
 
 ---
 ### 3. Create Watson IoT Platform Dashboard
 
-Let's create a Dashboard so we can see the simulated IoT readings for 1 of our devices: `CL_Asset_1`. 
+Let's create a Dashboard so we can see the simulated IoT readings for 1 of our devices: `CL_Asset_1`.
 This Dashboard will allow us to clearly visualise the anomalies earlier mentioned.
 
 1. Still in the *Watson IoT Platform*, click on the *Boards* menu. Click `Create Board`. Name the Board `CL_Asset IoT Readings Dashobard`. Click `Next` then `Submit`. Open the Board.
 2. Let's first create a small card which displays the 8 IoT Readings we simulated, getting updated every 15 seconds. Click `Add New Card`. Select `All device properties` then `CL_Asset_1`, then `Next` then `Submit`.
-3. Let's now create a card which whos the flow of data. Click `Add New Card`. Click `Line Chart`, then select `CL_Asset_1`. 
+3. Let's now create a card which whos the flow of data. Click `Add New Card`. Click `Line Chart`, then select `CL_Asset_1`.
 4. Click `Connect data set`. In the *event* field, select `CLA` (that is the name of the IoT Simulation we created earlier),
 then in the *Property* select `temperature`. Repeat this for a couple more properties, e.g. `vibration` and `pressure`. Click `Next`, select the `XL` size, click `Next` then `Submit`.
 5. Drag and drop the second card next to the first one. Play with the `5 minutes` to `24 hours` views.
@@ -112,7 +112,7 @@ The below pictures summarise the previous steps and show what your Dashboard sho
 ---
 ### 4. Create Physical & Logical Interfaces
 
-So far, we have only generated simulated IoT data. 
+So far, we have only generated simulated IoT data.
 What Monitor uses for all its visualisations and calculations is the data from the [data lake](https://www.ibm.com/support/knowledgecenter/SSQR84_monitor/iot/overview/architecture_mon.html).
 Monitor's data lake is being populated through the use of [Physical & Logical](https://www.ibm.com/support/knowledgecenter/en/SSQP8H/iot/platform/GA_information_management/ga_im_device_twin.html) interfaces.
 Let's create those interfaces and populate that data lake !
@@ -121,7 +121,7 @@ First let's create the Physical Interface.
 
 1. Still in the *Watson IoT Platform*, go to the *Device Types* menu, search then select *CL_Asset*, then click on the *Interface* menu.
 2. Click `Create Physical Interface`. Leave the default name *CL_Asset_PI*, click `Next`.
-3. Click `Create event type`. Wait 15 seconds or click `Use Last Event Cache` and you will see the *CLA* (which corresponds to the IoT Simulation we earlier created) event appear. 
+3. Click `Create event type`. Wait 15 seconds or click `Use Last Event Cache` and you will see the *CLA* (which corresponds to the IoT Simulation we earlier created) event appear.
 4. Click that event, click `Add`. Cick `Done`.
 
 This picture shows the previous steps and where you should be by now.
@@ -155,7 +155,7 @@ Also, for Anomaly functions to detect anomalies, 'normal conditions' must first 
 
 1. Back to the Monitor interface, click `Monitor Entities`. If you see 3 in `Number of Entities`, it means that your data did make it to the dat lake. Let's have a look around.
 2. Click on `CL_Asset`. Then click on `CL_Asset_1`, then on its `Metrics` tab. Play with the 'slider' on e.g. `acceleration` - you can see your data now.
-3. Go back to the `CL_Asset` main page, and click the `Data` tab. 
+3. Go back to the `CL_Asset` main page, and click the `Data` tab.
 See all your (raw) IoT Metrics & Dimensions. Note that at this stage it is normal to see only a couple points on the graph as we have only been generating data for so long ! Play with the top 'slider' here too.
 
 If you see this, so far so good !
@@ -166,21 +166,21 @@ If you see this, so far so good !
 1. Back to the `CL_Asset` main page, click `New Summary`.
 2. Enter `Hourly` as your *Dashboard title*, select `Hourly` *Time grain*, click all *Dimensions*. Click `Next`.
 3. Click all `Dat Item`, and for just 1 reading e.g. `temperature`, select all `Methods` i.e. `max`, `min`, `mean`, `std` etc. Click `Configure Dashboard`.
-4. Click `Create`. Note that it will take a couple minutes for your Hourly dashboard is ready, and you will note a *Preparing* icon during that time. 
+4. Click `Create`. Note that it will take a couple minutes for your Hourly dashboard is ready, and you will note a *Preparing* icon during that time.
 ![Monitor8](/img/monitor/Monitor-8.png) &nbsp;
 
 Once it is ready, your dashboard should look like this (with possibly less data points depending on how fast you have been to get here and for how long data has been sent).
 Notice the hourly grain of the cards (vs. the shorter time grain that you just saw on the *CL_Asset_1* Metrics tab).
 On the left side in `Summary Controls`, notice the so-called Dimensions that correspond to the Metadata we associated to the `CL_Asset` Device Type and 3 Devices when we created them in the Watson IoT Platform.
-Notice how you can change the 'time scope' of each card. 
+Notice how you can change the 'time scope' of each card.
 Finally, also notice how the `temperature` card displays the `max`, `min`, `mean` etc that we defined via the `Methods` and how you can click on 1 or several of these.
 ![Monitor9](/img/monitor/Monitor-9.png) &nbsp;
 
 ### 3. Explore the Data & create new Data Items
 
-1. Back to the `CL_Asset` main page, click on the `Data` tab. Observe that new Data Items have appeared, i.e. under the `Metric (Calculated)` section. 
+1. Back to the `CL_Asset` main page, click on the `Data` tab. Observe that new Data Items have appeared, i.e. under the `Metric (Calculated)` section.
 Notice that for all the IoT Readings, a new `reading_Hourly_mean` calculated metric was created - this was automatically done when we crated the hourly dashboard in previous step.
-2. In the filer just below *Data Item*, start writing *temp*. This filters the data items displayed. 
+2. In the filer just below *Data Item*, start writing *temp*. This filters the data items displayed.
 Note that for the temperature reading, on top of the mean data item, `temperature_Hourly_min`, `temperature_Hourly_max`, `temperature_Hourly_std` etc were also created - that is because of the 8 *Methods* that we earlier selected for that data item when creating the dashboard.
 ![Monitor10](/img/monitor/Monitor-10.png) &nbsp;
 
@@ -195,7 +195,7 @@ You can access it here: [Monitor Anomalies](https://mam-hol.eu-gb.mybluemix.net/
 In this deep-dive lab, you will:
 
 * view 3 great short Youtube movies explaining all the ins and outs of anomaly detection
-* 
+*
 * cdcd
 
 
