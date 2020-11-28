@@ -39,7 +39,7 @@ Let's first create a *Device Type*.
 5. On the next *Metadata* page, enter `CL` in *Model* and *Manufacturer* fields, and enter `CL_Asset` in *Device Class* field. The reason why we want to enter values here is to later show how *Dimensions* can be used in *Monitor* to slide and dice the data. Click `Finish`.
 
 The below picture shows the 5 previous steps.
-![Monitor1](/img/monitor/Monitor-1.png)&nbsp;
+![Monitor1](../img/monitor/Monitor-1.png)&nbsp;
 
 Now, let's create 3 *Devices* of type *CL_Asset*.
 
@@ -54,7 +54,7 @@ Now, let's create 3 *Devices* of type *CL_Asset*.
 You have now created the required `CL_Asset` *Device Type* and the 3 `CL_Asset_1`, `CL_Asset_2` and `CL_Asset_3` *Devices* that we will use throughout the labs.
 
 The below pictures shows the 7 previous steps.
-![Monitor2](/img/monitor/Monitor-2.png) &nbsp;  
+![Monitor2](../img/monitor/Monitor-2.png) &nbsp;  
 
 ---
 ### 2. Create IoT Simulation
@@ -88,7 +88,7 @@ Later on in the lab, we will change those value ranges for short periods of time
  }  
 ```
 The below pictures shows the 6 previous steps.
-![Monitor3](/img/monitor/Monitor-3.png) &nbsp;
+![Monitor3](../img/monitor/Monitor-3.png) &nbsp;
 
 Great, you now have your 3 `CL_Asset_1_2_3` Devices generating IoT readings 4 times every minute.
 Let's check those readings on a Dashboard.
@@ -107,7 +107,7 @@ then in the *Property* select `temperature`. Repeat this for a couple more prope
 5. Drag and drop the second card next to the first one. Play with the `5 minutes` to `24 hours` views.
 
 The below pictures summarise the previous steps and show what your Dashboard should like.
-![Monitor4](/img/monitor/Monitor-4.png) &nbsp;
+![Monitor4](../img/monitor/Monitor-4.png) &nbsp;
 
 ---
 ### 4. Create Physical & Logical Interfaces
@@ -125,7 +125,7 @@ First let's create the Physical Interface.
 4. Click that event, click `Add`. Cick `Done`.
 
 This picture shows the previous steps and where you should be by now.
-![Monitor5](/img/monitor/Monitor-5.png) &nbsp;
+![Monitor5](../img/monitor/Monitor-5.png) &nbsp;
 
 Let's now create the Logical Interface.
 
@@ -159,7 +159,7 @@ Also, for Anomaly functions to detect anomalies, 'normal conditions' must first 
 See all your (raw) IoT Metrics & Dimensions. Note that at this stage it is normal to see only a couple points on the graph as we have only been generating data for so long ! Play with the top 'slider' here too.
 
 If you see this, so far so good !
-![Monitor7](/img/monitor/Monitor-7.png) &nbsp;
+![Monitor7](../img/monitor/Monitor-7.png) &nbsp;
 
 ### 2. Create an Hourly Summary Dashboard
 
@@ -167,14 +167,14 @@ If you see this, so far so good !
 2. Enter `Hourly` as your *Dashboard title*, select `Hourly` *Time grain*, click all *Dimensions*. Click `Next`.
 3. Click all `Dat Item`, and for just 1 reading e.g. `temperature`, select all `Methods` i.e. `max`, `min`, `mean`, `std` etc. Click `Configure Dashboard`.
 4. Click `Create`. Note that it will take a couple minutes for your Hourly dashboard is ready, and you will note a *Preparing* icon during that time.
-![Monitor8](/img/monitor/Monitor-8.png) &nbsp;
+![Monitor8](../img/monitor/Monitor-8.png) &nbsp;
 
 Once it is ready, your dashboard should look like this (with possibly less data points depending on how fast you have been to get here and for how long data has been sent).
 Notice the hourly grain of the cards (vs. the shorter time grain that you just saw on the *CL_Asset_1* Metrics tab).
 On the left side in `Summary Controls`, notice the so-called Dimensions that correspond to the Metadata we associated to the `CL_Asset` Device Type and 3 Devices when we created them in the Watson IoT Platform.
 Notice how you can change the 'time scope' of each card.
 Finally, also notice how the `temperature` card displays the `max`, `min`, `mean` etc that we defined via the `Methods` and how you can click on 1 or several of these.
-![Monitor9](/img/monitor/Monitor-9.png) &nbsp;
+![Monitor9](../img/monitor/Monitor-9.png) &nbsp;
 
 ### 3. Explore the Data & create new Data Items
 
@@ -182,7 +182,7 @@ Finally, also notice how the `temperature` card displays the `max`, `min`, `mean
 Notice that for all the IoT Readings, a new `reading_Hourly_mean` calculated metric was created - this was automatically done when we crated the hourly dashboard in previous step.
 2. In the filer just below *Data Item*, start writing *temp*. This filters the data items displayed.
 Note that for the temperature reading, on top of the mean data item, `temperature_Hourly_min`, `temperature_Hourly_max`, `temperature_Hourly_std` etc were also created - that is because of the 8 *Methods* that we earlier selected for that data item when creating the dashboard.
-![Monitor10](/img/monitor/Monitor-10.png) &nbsp;
+![Monitor10](../img/monitor/Monitor-10.png) &nbsp;
 
 ### 4. Create some anomalous IoT Readings
 
