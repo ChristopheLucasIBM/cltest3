@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Christophe Lucas">
+        <link rel="canonical" href="https://mam-hol.eu-gb.mybluemix.net/health/health/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>HEALTH - IBM Maximo Asset Performance Management (APM) Labs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">IBM Maximo Asset Performance Management (APM) Labs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../monitor/monitor/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../predict/predict/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#health-lab" class="nav-link">HEALTH Lab</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#0-overview-prerequisites" class="nav-link">0. Overview &amp; Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#1-create-3-assets-1-query-in-maximo" class="nav-link">1. Create 3 Assets &amp; 1 Query in Maximo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-create-a-meter-group" class="nav-link">2. Create a Meter Group</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-associate-meter-group-to-your-assets-create-meter-readings" class="nav-link">3. Associate Meter Group to your Assets &amp; create Meter Readings</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="health-lab">HEALTH Lab</h1>
+<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
+<h2 id="0-overview-prerequisites">0. Overview &amp; Prerequisites</h2>
+<p>In this Module you will:
+* bh</p>
+<h2 id="1-create-3-assets-1-query-in-maximo">1. Create 3 Assets &amp; 1 Query in Maximo</h2>
+<ol>
+<li>In Maximo, click the <code>Go To Applications - Asset</code> Menu. Click the + button to create an Asset, 
+enter <code>CL_Asset_1</code> in both the <em>Asset ID</em> &amp; <em>Description</em> fields. Click <code>Save</code>. 
+Repeat this step for <code>CL_Asset_2</code> and <code>CL_Asset_3</code>.</li>
+<li>Click the <code>List View</code> menu. In the Asset field, enter <code>CL_Asset*</code>, click enter. 
+This should return the list of your 3 just-created <em>CL_Assets</em>. 
+Click the <code>Save Query</code> button, enter <code>CL_Assets</code> in in both the <em>Query Name</em> &amp; <em>Description</em>. Tick the <code>Public</code> box.
+<img alt="Health1" src="/img/health/Health-1.png" />&nbsp; </li>
+</ol>
+<h2 id="2-create-a-meter-group">2. Create a Meter Group</h2>
+<p>In this section, we will create a maximo <em>Meter Group</em> containing 8 <em>Meters</em> that we will later associate to the 
+<em>IoT readings</em> that we defined in the first section of the MONITOR lab.</p>
+<ol>
+<li>In Maximo to-left <code>Find Navigation Item</code> box, enter the <code>Meter Groups</code> application.</li>
+<li>Click the + button to create a Meter Group, enter <code>CL_Asset</code> in both the <em>Meter Group</em> &amp; <em>Description</em> fields.</li>
+<li>Click <code>New Row</code> and in the <em>Meter</em> field, click <code>Select Value</code>. 
+In the <em>Select Value</em> window that opens, enter <code>Temp</code> in the Meter field, hit Enter, select <code>TEMP-C</code>.</li>
+<li>Repeat previous step with the following <em>Meters</em>: 
+<code>VIBRATIONH</code>, <code>PRESSURE</code>, <code>SPEED</code>, <code>ACCELERAT</code>, <code>LOAD</code>, <code>TORQUE</code>, <code>STARTS</code>. Click the <code>Save</code> button.</li>
+</ol>
+<p>Note that, although Meters like <code>PRESSURE</code> often exist in Maximo installations out-of-the-box, 
+some of the Meters appearing in step 4. might not exist in Maximo yet. In which case, do the following:
+(a) Go to the <code>Meters</code> menu via <code>Find Navigation Item</code>, (b) click <code>Create</code> new Meter, enter e.g. <code>ACCELERAT</code> (the maximum name length is 9 ),
+select <code>GAUGE</code> as <code>Meter Type</code>, then <code>Save</code>. That newly created <em>Meter</em> can now be added to the <em>Meter Group</em> in step 4.
+<img alt="Health2" src="/img/health/Health-2.png" />&nbsp; </p>
+<h2 id="3-associate-meter-group-to-your-assets-create-meter-readings">3. Associate Meter Group to your Assets &amp; create Meter Readings</h2>
+<ol>
+<li>In Maximo, click the <code>Go To Applications - Asset</code> Menu. In the Asset field, enter <code>CL_Asset*</code>, click enter.
+This will return the list of you 3 <em>CL_Assets</em>, click <code>CL_Asset_1</code>.</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
